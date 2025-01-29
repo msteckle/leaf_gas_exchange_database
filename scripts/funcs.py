@@ -4,6 +4,8 @@ import pandas as pd
 import cfunits
 import chardet
 import os
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 def clean_values(values):
     """
@@ -61,6 +63,7 @@ def encode_dataframe_values(df):
         pd.DataFrame: The normalized DataFrame.
     """
     import unicodedata
+    import pandas as pd
 
     # Helper function to normalize character encoding for a single text value
     def normalize_encoding(text):
@@ -70,21 +73,27 @@ def encode_dataframe_values(df):
             return unicodedata.normalize('NFKC', text)  # Normalize Unicode to NFC form
         return text
 
+    # Ensure the DataFrame's multi-index (if present) is sorted
+    if isinstance(df.columns, pd.MultiIndex) and not df.columns.is_monotonic_increasing:
+        df = df.sort_index(axis=1)
+
     # Normalize each level in the column headers if it is a multi-index
     if isinstance(df.columns, pd.MultiIndex):
-        df.columns = pd.MultiIndex.from_tuples([
+        normalized_columns = [
             tuple(normalize_encoding(level) for level in col) for col in df.columns
-        ], names=df.columns.names)
+        ]
+        df.columns = pd.MultiIndex.from_tuples(normalized_columns, names=df.columns.names)
     else:
         df.columns = [normalize_encoding(col) for col in df.columns]
 
-    # Normalize each cell in the DataFrame
+    # Normalize each cell in the DataFrame without overwriting during iteration
+    result_df = df.copy()  # Work on a copy to avoid issues while modifying
     for col in df.columns:
-        df[col] = df[col].apply(lambda x: normalize_encoding(x) if isinstance(x, str) else x)
+        result_df[col] = df[col].apply(lambda x: normalize_encoding(x) if isinstance(x, str) else x)
 
-    return df
+    return result_df
 
-# Function to ue the headers lookup table to normalize header names across future additional datasets
+# Function to use the headers lookup table to normalize header names across future additional datasets
 def standardize_headers(df, lookup_dict):
     # First normalize the DataFrame for consistent encoding
     df = encode_dataframe_values(df)
@@ -109,13 +118,27 @@ def standardize_headers(df, lookup_dict):
     # Set the new standardized multi-level columns
     df.columns = pd.MultiIndex.from_tuples(standardized_columns, names=['standard_variable', 'standard_description', 'unit'])
     
-    # Ensure unique column names within the DataFrame
-    df = df.loc[:, ~df.columns.duplicated()]  # Remove duplicated columns
-    df.columns = pd.MultiIndex.from_tuples([
-        (f"{col[0]}_{i}" if df.columns.duplicated()[i] else col[0], col[1], col[2]) 
-        for i, col in enumerate(df.columns)
-    ], names=['standard_variable', 'standard_description', 'unit'])
-    
+    # Step 1: Identify duplicate standard_variables
+    duplicated_cols = df.columns[df.columns.duplicated(keep=False)]
+
+    # Step 2: Merge duplicate columns
+    merged_data = {}
+    for col in duplicated_cols.unique():
+        # Select all duplicate columns for the same standard_variable
+        duplicate_columns = [c for c in df.columns if c[0] == col[0]]
+
+        # Merge values row-wise, ignoring NaNs, deduplicating, and stripping whitespace
+        merged_data[col] = df[duplicate_columns].apply(
+            lambda x: ' '.join(pd.unique(x.dropna().map(str).str.strip())).strip(), axis=1
+        )
+
+    # Convert merged data into DataFrame
+    merged_df = pd.DataFrame(merged_data)
+
+    # Step 3: Drop original duplicate columns and add merged ones
+    df = df.drop(columns=duplicated_cols.unique(), axis=1)
+    df = pd.concat([df, merged_df], axis=1)
+
     return df
 
 def visualize_all_columns(data):
