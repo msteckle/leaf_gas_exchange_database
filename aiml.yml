@@ -1,0 +1,14 @@
+name: aiml
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - ydata-profiling
+  - ipywidgets
+  - jupyterlab
+  - geopandas
+  - contextily
+  - pint
+variables:
+  DYLD_LIBRARY_PATH: '/opt/homebrew/Cellar/udunits/2.2.28/lib:'
+prefix: /opt/homebrew/anaconda3/envs/aiml
