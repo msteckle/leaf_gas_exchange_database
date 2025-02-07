@@ -107,9 +107,18 @@ def standardize_headers(df, lookup_dict):
         
         # Check if we have a match in the lookup dictionary
         if lookup_key in lookup_dict:
+            
             # Replace with standardized values
             std_var = lookup_dict[lookup_key]['standard_variable']
             std_desc = lookup_dict[lookup_key]['standard_description']
+            std_unit = lookup_dict[lookup_key]['standard_unit']
+            
+            # If the standardized description is 1, force the unit to 1, otherwise keep original unit
+            if std_unit == 1:
+                unit = 1
+            elif pd.isna(unit):  # Explicitly check for NaN
+                unit = std_unit
+
             standardized_columns.append((std_var, std_desc, unit))
         else:
             # If no match found, keep the original multi-header
@@ -128,8 +137,9 @@ def standardize_headers(df, lookup_dict):
         duplicate_columns = [c for c in df.columns if c[0] == col[0]]
 
         # Merge values row-wise, ignoring NaNs, deduplicating, and stripping whitespace
+        # Ensure all values are converted to strings before applying string operations
         merged_data[col] = df[duplicate_columns].apply(
-            lambda x: ' '.join(pd.unique(x.dropna().map(str).str.strip())).strip(), axis=1
+            lambda x: ' '.join(pd.unique(x.dropna().astype(str).str.strip())).strip(), axis=1
         )
 
     # Convert merged data into DataFrame
