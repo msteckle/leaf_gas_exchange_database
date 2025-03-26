@@ -6,6 +6,7 @@ import chardet
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
+from collections import defaultdict
 
 def clean_values(values):
     """
@@ -93,64 +94,75 @@ def encode_dataframe_values(df):
 
     return result_df
 
-# Function to use the headers lookup table to normalize header names across future additional datasets
 def standardize_headers(df, lookup_dict):
-    # First normalize the DataFrame for consistent encoding
-    df = encode_dataframe_values(df)
-
-    standardized_columns = []
-    # Iterate over the multi-header columns in the dataset
-    for col in df.columns:
-        # Extract the variable, description, and unit for each column
-        var, desc, unit = col[0], col[1], col[2]
-        lookup_key = (var, desc, unit)
-        
-        # Check if we have a match in the lookup dictionary
-        if lookup_key in lookup_dict:
-            
-            # Replace with standardized values
-            std_var = lookup_dict[lookup_key]['standard_variable']
-            std_desc = lookup_dict[lookup_key]['standard_description']
-            std_unit = lookup_dict[lookup_key]['standard_unit']
-            
-            # If the standardized description is 1, force the unit to 1, otherwise keep original unit
-            if std_unit == 1:
-                unit = 1
-            elif pd.isna(unit):  # Explicitly check for NaN
-                unit = std_unit
-
-            standardized_columns.append((std_var, std_desc, unit))
-        else:
-            # If no match found, keep the original multi-header
-            standardized_columns.append((var, desc, unit))
-
-    # Set the new standardized multi-level columns
-    df.columns = pd.MultiIndex.from_tuples(standardized_columns, names=['standard_variable', 'standard_description', 'unit'])
+    """
+    Standardizes multi-index column headers using lookup_dict and merges duplicate standard_variables.
     
-    # Step 1: Identify duplicate standard_variables
-    duplicated_cols = df.columns[df.columns.duplicated(keep=False)]
+    Parameters:
+    df (pd.DataFrame): DataFrame with a 3-level multi-index column (variable, description, unit).
+    lookup_dict (dict): Dictionary mapping (variable, description, unit) tuples to standardized names.
 
-    # Step 2: Merge duplicate columns
+    Returns:
+    pd.DataFrame: DataFrame with standardized and merged columns.
+    """
+    # Step 1: Standardize column headers
+    new_columns = []
+    original_columns_map = defaultdict(list)  # {std_variable : [(variable, description, unit), ...]}
+    
+    for col in df.columns:
+        if col in lookup_dict:
+            std_info = lookup_dict[col]
+            std_variable = std_info['standard_variable']
+            std_description = std_info['standard_description']
+            std_unit = std_info['standard_unit']
+
+            # Handle special unit cases
+            unit = 1 if std_unit == 1 else col[2] if not pd.isna(col[2]) else std_unit
+            
+            new_columns.append((std_variable, std_description, unit))
+            original_columns_map[(std_variable, std_description, unit)].append(col)  # Map original column to standard_variable
+        else:
+            new_columns.append(col)  # Keep unchanged if no match
+            original_columns_map[col].append(col)  # Default to original variable name
+    
+    # Step 2: Update DataFrame headers
+    new_df = df.copy()
+    new_df.columns = pd.MultiIndex.from_tuples(new_columns, names=['standard_variable', 'standard_description', 'unit'])
+    
+    # Step 3: Handle duplicate multi-headers
     merged_data = {}
-    for col in duplicated_cols.unique():
-        # Select all duplicate columns for the same standard_variable
-        duplicate_columns = [c for c in df.columns if c[0] == col[0]]
-
-        # Merge values row-wise, ignoring NaNs, deduplicating, and stripping whitespace
-        # Ensure all values are converted to strings before applying string operations
-        merged_data[col] = df[duplicate_columns].apply(
-            lambda x: ' '.join(pd.unique(x.dropna().astype(str).str.strip())).strip(), axis=1
-        )
-
-    # Convert merged data into DataFrame
-    merged_df = pd.DataFrame(merged_data)
-
-    # Step 3: Drop original duplicate columns and add merged ones
-    df = df.drop(columns=duplicated_cols.unique(), axis=1)
-    df = pd.concat([df, merged_df], axis=1)
-
-    return df
-
+    for std_var, col_list in original_columns_map.items():
+        if len(col_list) > 1:
+            
+            # Subselect the columns from df
+            sub_df = df[list(col_list)]
+            
+            # Create the merged column
+            def merge_row_values(row):
+                merged_strings = []
+                for col, value in zip(col_list, row):
+                    var_name = col[0]  # Extract the variable name
+                    value_str = str(value) if pd.notna(value) and value not in ['', None] else 'None'
+                    merged_strings.append(f"{var_name}: {value_str}")
+                return ', '.join(merged_strings)
+            
+            merged_column = sub_df.apply(merge_row_values, axis=1)
+            
+            # Store the merged column
+            merged_data[std_var] = merged_column
+    
+    # Convert merged columns into DataFrame
+    merged_df = pd.DataFrame(merged_data, index=df.index)
+    
+    # Drop duplicate columns
+    new_df = new_df.loc[:, ~new_df.columns.duplicated()]
+    
+    # Add merged columns to new_df (replace the duplicate cols we just dropped)
+    for col, values in merged_df.items():
+        new_df[col] = values
+    
+    return new_df
+            
 def visualize_all_columns(data):
         
         # Extract the column data
@@ -257,7 +269,7 @@ def process_datetime(row, formats):
 
         for fmt in formats.get("datetime_formats", []):
             # First, check for range_of_days special case
-            if fmt == 'range_of_days' and "-" in date_str and any(char.isdigit() for char in date_str):
+            if fmt == 'range_of_months' and "-" in date_str and any(char.isdigit() for char in date_str):
                 for mon_fmt in ['%b', '%B']:
                     try:
                         month = date_str.split()[-1]
