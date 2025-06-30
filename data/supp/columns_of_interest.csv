@@ -1,0 +1,52 @@
+standard_variable,standard_description,standard_unit
+A,Net CO2 exchange per leaf area,μmol m-2 s-1
+area,Leaf area,cm-2
+canopyPosition,"Position of leaf samples within canopy, i.e., top of canopy or within canopy",1
+canopyHeight,Sample canopy position and canopy height or LAI recorded,m
+Ci,Intercellular CO2 concentration in air,μmol mol-1
+CiCa,Ratio of intercellular CO2 to sample chamber CO2,1
+comments,Describe any custom modifications and any other relevant information,1
+CO2r,CO2 concentration in wet air entering chamber,μmol mol-1
+CO2s,CO2 concentration in wet air inside chamber,μmol mol-1
+dataContributor,Name of the individual or organization that contributed to the data,1
+dataFile,File that the data was sourced from,1
+date,Date of observation,1
+day,Day of observation,1
+E,Transpiration rate of H2O per leaf area,mmol m-2 s-1
+experimentalTreatment,Description of any applied sample manipulations,1
+flow,Flow rate of air into chamber,μmol s-1
+gbw,Boundary layer conductance to water vapor per leaf area,mmol m-2 s-1
+growthEnvironment,Description of the plant growth environment,1
+gsw,Stomatal conductance to water vapor per leaf area,mmol m-2 s-1
+H2Or,H2O concentration in air entering chamber,mmol mol-1
+H2Os,H2O concentration in air inside chamber,mmol mol-1
+LAI,"The ratio of the leaf area to the ground area, which determines plant growth and development patterns",m-2 m-2
+latitude,Latitude coordinate of the site,degree
+longitude,Longitude coordinate of the site,degree
+instrumentChamber,Sample chamber or cuvette model. Describe any custom modifications in comments,1
+instrumentType,Instrument make & model. Describe any custom modifications in comments,1
+month,Month of observation,1
+Patm,Atmospheric pressure of the air,kPa
+plantAge,"Age in appropriate units (days, months, years) or relative age category (e.g. seedling, germling, sapling, mature) or other classification relevant to experiment",1
+plantBiome,"Classification of the biome based on climate and ecological characteristics, such as arctic, boreal, temperate, or tropical",1
+plantForm,"Life form of the plant, categorizing it as tree, shrub, grass, crop, savanna, etc., based on growth form and ecological function",1
+plantHeight,The height of the plant measured,m
+plantLeaf,"Leaf lifespan strategy of the plant, categorizing it as evergreen or deciduous based on leaf retention patterns",1
+plantType,"Classification of plant as either gymnosperm or angiosperm, indicating differences in reproductive structures and evolutionary lineage",1
+Qin,"In-chamber photosynthetic flux density (PPFD) incident on the leaf, quanta per area",μmol m-2 s-1
+Qout,"External photosynthetic flux density (PPFD), quanta per area",μmol m-2 s-1
+Record,Observation record number,1
+SampleID,Identifier of the measured leaf,1
+RHr,Relative humidity of air entering the chamber,%
+RHs,Relative humidity of air inside the chamber,%
+season,Season when the measurement was collected,1
+siteIdentifier,Location descriptor of where data was collected,1
+species,Full species name and subspecies if applicable,1
+speciesCode,Code used to identify species in data tables,1
+Tair,Air temperature inside the chamber,degree_C
+Tblock,Temperature of cooler block used to stabilize air temperature,degree_C
+time,Time of observation,1
+timezone,Time of observation timezone,1
+Tleaf,Leaf surface temperature,degree_C
+VPDleaf,Leaf to air vapor pressure deficit,kPa
+year,Year of observation,1

@@ -1,0 +1,37 @@
+﻿variable,description,unit
+chamber,unique chamber number for whole tree chamber experiments,
+ci,intercellular CO2 concentration,μmol mol-1
+co2_treatment,experimental CO2 treatments,"ambient"", ""elevated"", ""no_CO2_treatments"
+co2r,reference CO2 concentration,μmol mol-1
+co2s,CO2 concentration at leaf surface,μmol mol-1
+cond,stomatal conductance,mmol m-2 s-1
+curve_id,a unique curve number for individual ACi curves in a dataset,
+curve_number,a unique curve number for individual ACi curves within the dataset,
+data_contributor,name of the individual dataset contributors,
+data_type,data grouping tag,1
+dataset,unique name given for individual datasets,
+date,data collection date,
+growth_condition,plant growth condition,
+leaf_age,leaf age,1
+leafspan,Evergreen or Deciduous,
+location,site where the dataset collected,
+mat,mean annual air temperature at the species seed source,degree_C
+maxt,mean maximum air temperature of the warmest month at the species seed source,degree_C
+mgdd0,mean air temperature during the growing season at the species seed source,degree_C
+pari,Photosynthetically active radiation inside leaf cuvette,mmol m-2 s-1
+pft,plant functional type,1
+photo,net photosynthetic rate,μmol m-2 s-1
+reference,reference,
+replicate,replicate id,
+season,measurement season,
+seed_source_latitude,species seed source latitude,
+seed_source_longitude,species seed source longitude,
+species,standard species name,
+tair,air temperature,degree_C
+tblk,LICOR block temperature,degree_C
+temp_treatment,experimental temperature treatments,"ambient"", ""elevated"", ""no_temperature_treatments"
+tleaf,leaf temperature,degree_C
+tregion,Biome,
+type,Gymnosperm or angiosperm,
+vpdl,Vapour pressure deficit,kPa
+water_treatment,experimental watering treatments,"wet"", ""dry"

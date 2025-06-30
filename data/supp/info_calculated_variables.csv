@@ -1,0 +1,26 @@
+variableName,variableUnit,variableDescription,expectedValueRangeMin,expectedValueRangeMax
+AsatG,µmol m-2 s-1,Maximum rate of gross CO₂ assimilation derived from the light response curve. Equivalent to total of CO₂ assimilation and CO₂ release.,,
+CE,mol m-2 s-1,"Maximum carboxylation efficiency, based on an empirical determination of the initial slope of an ACi curve",,
+CiCa,1,Ratio of intercellular CO₂ to sample chamber CO₂,,
+CO2comp,µmol mol-1,CO₂ compensation point,,
+gm,mol m-2 s-1,Mesophyll conductance to CO₂ per leaf area,,
+J,µmol m-2 s-1,"Rate of electron transport per leaf area at measurement temperature calculated assuming infinite mesophyll conductance for a given irradiance e.g. J1800. Or at reference temperature e.g., J1800,25",0,600
+Jmax,µmol m-2 s-1,Maximum rate of electron transport per leaf area at measurement temperature calculated assuming infinite mesophyll conductance and saturating light,0,600
+Jmax25,µmol m-2 s-1,"Maximum rate of electron transport per leaf area, at the reference temperature 25°C calculated assuming infinite mesophyll conductance and saturating light",0,600
+LCP,µmol m-2 s-1,Light compensation point. The lowest photosynthetic photon flux density at which positive net CO₂ assimilation is observed,,
+LSP,µmol m-2 s-1,Light saturation point. The irradiance at which further increases in irradiance level do not increase net CO₂ assimilation rate.,,
+PhiCO2a,mol mol-1,Maximum quantum yield of CO₂ assimilation based on absorbed irradiance,,
+PhiCO2i,mol mol-1,Maximum quantum yield of CO₂ assimilation based on incident irradiance,,
+PhiJa,mol mol-1,Maximum quantum yield of electron transport based on arbsorbed irradiance,,
+PhiJi,mol mol-1,Maximum quantum yield of electron transport based on incident irradiance,,
+Rdark,µmol m-2 s-1,"CO₂ release from the leaf in the dark, at measurement temperature, reported as a positive value",,
+Rdark25,µmol m-2 s-1,"CO₂ release from the leaf in the dark, at the reference temperature of 25°C, reported as a positive value",,
+Rday,µmol m-2 s-1,"CO₂ release from the leaf in the light, reported as a positive value",,
+Rday25,µmol m-2 s-1,"CO₂ release from the leaf in the light, at the reference temperature of 25°C, reported as a positive value.",,
+Theta,1,Empirical convexity parameter derived from the non-rectangular hyperbolic model of the light response curve,,
+TPU,µmol m-2 s-1,Triose phosphate utilization rate per leaf area at measurement temperature,,
+TPU25,µmol m-2 s-1,Triose phosphate utilization rate per leaf area at the reference temperature 25°C,,
+Vcmax,µmol m-2 s-1,"Maximum rate of carboxylation at measurement temperature, calculated assuming infinite mesophyll conductance, i.e. apparent Vcmax",0,500
+Vcmax25,µmol m-2 s-1,"Maximum rate of carboxylation, at the reference temperature 25°C, calculated assuming infinite mesophyl conductance, i.e. apparent Vcmax",0,500
+Vpmax,µmol m-2 s-1,Phosphoenolpyruvate (PEP) saturated PEP carboxylation at measurement temperature,,
+WUEi,µmol mol-1,Intrinsic water use efficiency. Net CO₂ exchange per leaf area divided by stomatal conductance to water vapor per leaf area,,

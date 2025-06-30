@@ -1,0 +1,37 @@
+variable,description,unit,standard_variable,standard_description,standard_unit
+chamber,unique chamber number for whole tree chamber experiments,,chamber,unique chamber number for whole tree chamber experiments,1
+ci,intercellular CO2 concentration,µmol mol-1,Ci,Intercellular CO2 concentration in air,μmol mol-1
+co2_treatment,experimental CO2 treatments,"ambient"", ""elevated"", ""no_CO2_treatments",experimentalTreatment,Description of any applied sample manipulations,1
+co2r,reference CO2 concentration,µmol mol-1,CO2r,CO2 concentration in wet air entering chamber,μmol mol-1
+co2s,CO2 concentration at leaf surface,µmol mol-1,CO2s,CO2 concentration in wet air inside chamber,μmol mol-1
+cond,stomatal conductance,mmol m-2 s-1,gsw,Stomatal conductance to water vapor per leaf area,mmol m-2 s-1
+curve_id,a unique curve number for individual ACi curves in a dataset,,curve_id,the curve number for individual ACi curve as assigned by a source dataset,1
+curve_number,a unique curve number for individual ACi curves within the dataset,,SampleID,Identifier of the measured leaf,1
+data_contributor,name of the individual dataset contributors,,dataContributor,Name of the individual or organization that contributed to the data,1
+data_type,data grouping tag,1,data_type,data grouping tag,1
+dataset,unique name given for individual datasets,,siteIdentifier,Location descriptor of where data was collected,1
+date,data collection date,,date,Date of observation,1
+growth_condition,plant growth condition,,growthEnvironment,"Description of the plant growth environment",1
+leaf_age,leaf age,1,leaf_age,leaf age,1
+leafspan,Evergreen or Deciduous,,plantLeaf,"Leaf lifespan strategy of the plant, categorizing it as evergreen or deciduous based on leaf retention patterns",1
+location,site where the dataset collected,,location,site where the dataset collected,1
+mat,mean annual air temperature at the species seed source,degree_C,mat,mean annual air temperature at the species seed source,degree_C
+maxt,mean maximum air temperature of the warmest month at the species seed source,degree_C,maxt,mean maximum air temperature of the warmest month at the species seed source,degree_C
+mgdd0,mean air temperature during the growing season at the species seed source,degree_C,mgdd0,mean air temperature during the growing season at the species seed source,degree_C
+pari,Photosynthetically active radiation inside leaf cuvette,mmol m-2 s-1,pari,Photosynthetically active radiation inside leaf cuvette,mmol m-2 s-1
+pft,plant functional type,1,plantForm,"Life form of the plant, categorizing it as tree, shrub, grass, crop, savanna, etc., based on growth form and ecological function",1
+photo,net photosynthetic rate,µmol m-2 s-1,A,Net CO2 exchange per leaf area,μmol m-2 s-1
+reference,reference,,reference,reference,1
+replicate,replicate id,,Replicate,"If a leaf was measured more than once, it is assigned a replicate number",1
+season,measurement season,,season,Season when the measurement was collected,1
+seed_source_latitude,species seed source latitude,,latitude,Latitude coordinate of the site,degree
+seed_source_longitude,species seed source longitude,,longitude,Longitude coordinate of the site,degree
+species,standard species name,,species,Full species name and subspecies if applicable,1
+tair,air temperature,degree_C,Tair,Air temperature inside the chamber,degree_C
+tblk,LICOR block temperature,degree_C,Tblock,Temperature of cooler block used to stabilize air temperature,degree_C
+temp_treatment,experimental temperature treatments,"ambient"", ""elevated"", ""no_temperature_treatments",experimentalTreatment,Description of any applied sample manipulations,1
+tleaf,leaf temperature,degree_C,Tleaf,Leaf surface temperature,degree_C
+tregion,Biome,,plantBiome,"Classification of the biome based on climate and ecological characteristics, such as arctic, boreal, temperate, or tropical",1
+type,Gymnosperm or angiosperm,,plantType,"Classification of plant as either gymnosperm or angiosperm, indicating differences in reproductive structures and evolutionary lineage",1
+vpdl,Vapour pressure deficit,kPa,VPDleaf,Leaf to air vapor pressure deficit,kPa
+water_treatment,experimental watering treatments,"wet"", ""dry",experimentalTreatment,Description of any applied sample manipulations,1

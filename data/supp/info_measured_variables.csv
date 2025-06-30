@@ -1,0 +1,27 @@
+variableName,variableUnit,variableDescription,expectedValueRangeMin,expectedValueRangeMax
+date,YYYY-MM-DD,Date of observation,,
+time,HH:MM:SS,Time of observation,,
+record,1,Observation record number,,
+area,cm-2,Leaf area,,
+A,µmol m-2 s-1,Net CO₂ exchange per leaf area,-20,120
+Amax,µmol m-2 s-1,Highest rate of light and CO₂ saturated A,-20,120
+Asat,µmol m-2 s-1,Highest rate of light saturated A at ambient CO₂ concentration,-20,120
+Ci,µmol mol-1,Intercellular CO₂ concentration in air,0,5000
+CO2r,µmol mol-1,CO₂ concentration in wet air entering chamber,0,5000
+CO2s,µmol mol-1,CO₂ concentration in wet air inside chamber,0,5000
+dCO2,µmol mol-1,Sample minus reference CO₂ concentration in air,,
+dH2O,mmol mol-1,Sample minus reference H₂O concentration in air,,
+E,mmol m-2 s-1,Transpiration rate of H₂O per leaf area. Note that output units from some instruments are in mol and will require conversion.,,
+flow,µmol s-1,Flow rate of air into chamber,,
+gbw,mmol m-2 s-1,Boundary layer conductance to water vapor per leaf area,,
+gsw,mmol m-2 s-1,Stomatal conductance to water vapor per leaf area,0,1000
+H2Or,mmol mol-1,H₂O concentration in air entering chamber,,
+H2Os,mmol mol-1,H₂O concentration in air inside chamber,,
+Patm,kPa,Atmospheric pressure,50,120
+Qin,µmol m-2 s-1,"In-chamber photosynthetic flux density (PPFD) incident on the leaf, quanta per area",0,5000
+Qout,µmol m-2 s-1,"External photosynthetic flux density (PPFD), quanta per area",0,5000
+RHr,%,Relative humidity of air entering the chamber,0,100
+RHs,%,Relative humidity of air inside the chamber,0,100
+Tair,degree_C,Air temperature inside the chamber,-20,70
+Tleaf,degree_C,Leaf surface temperature,-20,70
+VPDleaf,kPa,Leaf to air vapor pressure deficit,0,5
