@@ -1,0 +1,63 @@
+variable,description,unit,standard_variable,standard_description,standard_unit
+BLCond,Boundary layer conductance,mol m-2 s-1,gbw,Boundary layer conductance to water vapor per leaf area,mmol m-2 s-1
+CN,Leaf carbonto nitrogen ratio,1,CN,Leaf carbonto nitrogen ratio,1
+CO2R,Reference CO2,μmol mol-1,CO2r,CO2 concentration in wet air entering chamber,μmol mol-1
+CO2S,Sample CO2,μmol mol-1,CO2s,CO2 concentration in wet air inside chamber,μmol mol-1
+Ci,Intracellular CO2,μmol mol-1,Ci,Intercellular CO2 concentration in air,μmol mol-1
+Cond,Mean stomatal conductance for Aci curve,mol m-2 s-1,Cond,Mean stomatal conductance for Aci curve,mol m-2 s-1
+Cond,Stomatal conductance,mol m-2 s-1,gsw,Stomatal conductance to water vapor per leaf area,mmol m-2 s-1
+Cper,Leaf carbon content,%,Cper,Leaf carbon content,%
+DBH,Diameter at breast height (trees only),m,DBH,Diameter at breast height (trees only),m
+Date,Date of measurement,1,date,Date of observation,1
+Day,Day of year of measurement,1,day,Day of observation,1
+FCper,Field capcacity of soil at site (Saxton and Rawls 2006),%,FCper,Field capcacity of soil at site (Saxton and Rawls 2006),%
+Flow,Flow rate,μmol s-1,flow,Flow rate of air into chamber,μmol s-1
+Genus,Genus of individual,1,species,Full species name and subspecies if applicable,1
+H2OR,Reference H2O,mmol mol-1,H2OR,Reference H2O,mmol mol-1
+H2OS,Sample H2O,mmol mol-1,H2OS,Sample H2O,mmol mol-1
+Height,Height of individual (non-trees only),cm,plantHeight,The height of the plant measured,m
+Jmax,Maximum rate of electron tranport for RuBP regeneration at Tleaf_photo,μmol m-2 s-1,Jmax,Maximum rate of electron tranport for RuBP regeneration at Tleaf_photo,μmol m-2 s-1
+Juvenile,Indicator of juvenile status (Y = juvenile tree); note: all non-trees are indicated as non-juveniles,1,Juvenile,Indicator of juvenile status (Y = juvenile tree); note: all non-trees are indicated as non-juveniles,1
+LA,Leaf area,cm-2,area,Leaf area,cm-2
+LM,Leaf mass,g,LM,Leaf mass,g
+LWP_MPa,Leaf pre-dawn water potential,Mpa,LWP_MPa,Leaf pre-dawn water potential,Mpa
+Lat,Latitude,degree,latitude,Latitude coordinate of the site,degree
+Lifespan,Indicator of the length of lifespan of individual (annual or perennial),1,Lifespan,Indicator of the length of lifespan of individual (annual or perennial),1
+Location,Location of measurement,1,siteIdentifier,Location descriptor of where data was collected,1
+Lon,Longitude,degree,longitude,Longitude coordinate of the site,degree
+Nper,Leaf nitrogen content,%,Nper,Leaf nitrogen content,%
+PAR_gs,Average photosynthetically active radiation during the growing season from 1901-2015 (growing season = all months where average temperature > 0),μmol m-2 s-1,PAR_gs,Average photosynthetically active radiation during the growing season from 1901-2015 (growing season = all months where average temperature > 0),μmol m-2 s-1
+Pari,Photosynthetically active radiation inside the chamber,μmol m-2 s-1,Pari,Photosynthetically active radiation inside the chamber,μmol m-2 s-1
+Phenology,Indicator of deciduousness of individual (evergreen or nonevergreen),1,plantLeaf,"Leaf lifespan strategy of the plant, categorizing it as evergreen or deciduous based on leaf retention patterns",1
+Photo,Net photosynthetic rate,μmol m-2 s-1,A,Net CO2 exchange per leaf area,μmol m-2 s-1
+Photosynthesis,Photosynthetic pathway used by individaul (C3 or C4),1,Photosynthesis,Photosynthetic pathway used by individaul (C3 or C4),1
+Precipitation_gs,Average precipitation during the growing season from 1901-2015 (growing season = all months where average temperature > 0),mm,Precipitation_gs,Average precipitation during the growing season from 1901-2015 (growing season = all months where average temperature > 0),mm
+Press,Atmospheric pressure,kPa,Patm,Atmospheric pressure of the air,kPa
+RH_R,Reference relative humidity,%,RHr,Relative humidity of air entering the chamber,%
+RH_S,Sample relative humidity,%,RHs,Relative humidity of air inside the chamber,%
+Rd,Leaf dark respiration at Tleaf_photo,μmol m-2 s-1,Rd,Leaf dark respiration at Tleaf_photo,μmol m-2 s-1
+Rep,Repitition of species within a location,1,replicate,Identification number indicating if a plant was measured more than once,1
+SMper,Soil moisture at base of individual at 0-10 cm soil depth,%,SMper,Soil moisture at base of individual at 0-10 cm soil depth,%
+Satper,Soil saturation at site (Saxton and Rawls 2006),%,Satper,Soil saturation at site (Saxton and Rawls 2006),%
+SetLA,,,SetLA,Unknown,1
+Species,Species of individual,1,species,Full species name and subspecies if applicable,1
+Stature,Indicator of stature of individual (tree or non-tree),1,plantForm,"Life form of the plant, categorizing it as tree, shrub, grass, crop, savanna, etc., based on growth form and ecological function",1
+StmRat,Ratio of stomatal density from one sideo f leaf to other,,StmRat,Ratio of stomatal density from one sideo f leaf to other,1
+TBlk,Block temperature,degree_C,Tblock,Temperature of cooler block used to stabilize air temperature,degree_C
+Tair,Air temprature,degree_C,Tair,Air temperature inside the chamber,degree_C
+Temperature_gs,Average temperature during the growing season from 1901-2015 (growing season = all months where average temperature > 0),degree_C,Temperature_gs,Average temperature during the growing season from 1901-2015 (growing season = all months where average temperature > 0),degree_C
+Tleaf,Leaf temperature,degree_C,Tleaf,Leaf surface temperature,degree_C
+Tleaf_R,Leaf temperature for respiration measurements,degree_C,Tleaf_R,Leaf temperature for respiration measurements,degree_C
+Tleaf_photo,Leaf temperature for photosynthetic measurements,degree_C,Tleaf_photo,Leaf temperature for photosynthetic measurements,1
+Trmmol,Transpiration rate,mmol m-2 s-1,E,Transpiration rate of H2O per leaf area,mmol m-2 s-1
+VPD,Vapor pressure deifcit,kPa,VPDleaf,Leaf to air vapor pressure deficit,kPa
+VPD_gs,Average leaf to air vapor pressure deficit during the growing season from 1901-2015 (growing season = all months where average temperature > 0),kPa,VPD_gs,Average leaf to air vapor pressure deficit during the growing season from 1901-2015 (growing season = all months where average temperature > 0),kPa
+Vcmax,Maximum rate of Rubisco carboxylation at Tleaf_photo,μmol m-2 s-1,Vcmax,Maximum rate of Rubisco carboxylation at Tleaf_photo,μmol m-2 s-1
+Vpmax,Maximum rate of PEPc carboxylation at Tleaf_photo,μmol m-2 s-1,Vpmax,Maximum rate of PEPc carboxylation at Tleaf_photo,μmol m-2 s-1
+X,,,X,Unknown,1
+Year,Year of measurement,1,year,Year of observation,1
+aci_id,id corresponding to A/Ci curve file,1,dataContributor,Name of the individual or organization that contributed to the data,1
+ai,Aridity index (mean annual precipitation / potential evapotranspiration),1,ai,Aridity index (mean annual precipitation / potential evapotranspiration),1
+id,Identifier for Aci curve,,SampleID,Identifier of the measured leaf,1
+index,Unique number for indexing,1,Record,Observation record number,1
+leaf_shape,shape of leaf for individual (broadleaf or needleleaf),1,leaf_shape,shape of leaf for individual (broadleaf or needleleaf),1
